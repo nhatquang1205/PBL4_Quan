@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Danh sach bai toan</title>
+    </head>
+    <body>
+        <h2>Danh sach bai toan</h2>
+        <table border="1">
+            <?php
+            for($i=0;$i < sizeof($problems_List); $i++)
+             {
+                 $index = $i + 1;
+                 echo "<tr>";
+                 echo "<td><a href='ide1.html'>".$problems_List[$i]->getName_Prob()."</a></td>";
+                 echo "</tr>";
+             }
+            ?>
+        </table>
+        <br>
+        <p>
+            <a href="../index.php">Home Page</a>
+        </p>
+    </body>
+</html>

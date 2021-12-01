@@ -1,0 +1,154 @@
+/* *{margin: 0;}
+
+.header {
+    font-family: sans-serif;
+    background: #57a958;
+}
+.control-panel {
+    background: lightgray;
+    padding: 4px;
+    font-family: sans-serif;
+    text-align: left;
+}
+
+.languages {
+    background: white;
+    border: 1px solid gray;
+}
+
+#editor {
+     height: 400px; 
+    }
+
+.button-container {
+    padding: 4px;
+    left: 0;
+}
+
+.btn {
+    background: #57a958;
+    color: white;
+    padding: 8px;
+    border: 0;
+}
+
+.output {
+       
+} */
+.main{
+    width: 100%;
+    margin: 0 0;
+}
+
+.header{
+    width: 1500px;
+    background: #fff;
+    border: 2px solid #0e0d0d;
+    background: rgba(77, 72, 72, 0.432);
+}
+
+.header h2{
+    color: #000;
+    text-align: center;
+}
+
+.title-func{
+    width: 100%;
+    position: relative;
+}
+.selector{
+    width: 50%;
+    height: 34px;
+    background: #fff;
+    font-size: 24px;
+    border: 2px solid #D3D3D3;
+    background: rgba(199, 188, 188, 0.432);
+}
+.select-lang{
+    margin-left: 20px;
+}
+.result-title{
+    width: 50%;
+    height: 34px;
+    background: #fff;
+    font-size: 20px;
+    position: absolute;
+    border: 2px solid #D3D3D3;
+    left: 748px;
+    top:0;
+    line-height: 34px;
+    background: rgba(199, 188, 188, 0.432);
+}
+.button-run{
+    position: absolute;
+    left: 100px;
+    top:0;
+}
+.button-input{
+    position: absolute;
+    left: 154px;
+    top:0;
+}
+.btn-run:hover{
+    background: rgb(231, 147, 147);
+    color: #fff;
+}
+.btn-input:hover{
+    background: rgb(231, 147, 147);
+    color: #fff;
+}
+.button-share {
+    position: absolute;
+    top: 0;
+    left: 213px;
+}
+.btn-share:hover {
+    background: rgb(231, 147, 147);
+    color: #fff;
+}
+.tx-link {
+    position: absolute;
+    top: 0;
+    left: 271px;
+}
+.input{
+    width: 1500px;
+    display: none;
+}
+.tx-input{
+    resize: none;
+    width: 1470px;
+    padding-left: 30px;
+}
+.input.mode-on{
+    display: block;
+}
+.content{
+    width: 100%;
+    position: relative;
+    background: #cc3b3b;
+}
+.content #editor{
+    width: 750px;
+    height: 537px;
+}
+.output {
+    position: absolute;
+    left:755px;
+    top: 0;
+}
+.tx-output{
+    resize: none;
+    width: 741px;
+    height: 532px;
+    font-size: 25px;
+}
+.footer{
+    border: 2px solid #0e0d0d;
+    height: 70px;
+    line-height: 35px;
+    background: rgba(77, 72, 72, 0.432);
+}
+.footer  h3{
+    text-align: center;
+}

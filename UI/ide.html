@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Codeboard Online IDE</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- <div class="header">
+            <h2>Online Complier </h2>
+        </div> -->
+    <!-- <form action="../App/server.php" method="post"> -->
+        <!-- <div class="control-panel">
+            Select Language:
+            &nbsp; &nbsp;
+            <select id="languages" class="languages" name="language" onchange="changeLanguage()">
+                <option value="cpp"> C++ </option>
+                <option value="c"> C </option>
+                <option value="py"> Python </option>
+            </select>
+        </div>
+        <div class="editor" id="editor">
+        </div>
+        <div class="button-container">
+            <button class="btn" onclick="executeCode1()"> Run </button>
+        </div>
+        <div class="input">
+            <label for=""> Vui lòng nhập input, mỗi dòng ứng với 1 biến theo thứ tự</label>
+            <textarea name="inputCode" id="inputCode" cols="200" rows="10"></textarea>
+        </div>
+        <div class="output">
+            <textarea name="outputCode" id="outputCode" cols="200" rows="10"></textarea>
+        </div> -->
+    <!-- </form> -->
+    <div class="main">
+        <div class="header">
+            <h2>WEB COMPLIER ONLINE</h2>
+        </div>
+        <div class="title-func">
+            <div class="selector">
+                <div class="select-lang">
+                    <select id="languages" class="languages" name="language" onchange="changeLanguage()">
+                        <option value="cpp"> C++ </option>
+                        <option value="c"> C </option>
+                        <option value="py"> Python </option>
+                    </select>
+                </div>
+    
+                
+                <div class="button-run">
+                    <button class="btn-run" onclick="executeCode()"> Run </button>
+                </div>
+    
+                <div class="button-input">
+                    <button class="btn-input js-btn-input"> Input </button>
+             </div>
+             <div class="button-share">
+                 <button class="btn-share" onclick="shareCode()">Link</button>
+             </div>
+             <div class="tx-link">
+                <input style="width : 400px" type="text" name="" id="txt_Link">
+             </div>
+             <div class="result-title">
+                &nbsp; Result
+             </div>
+    
+            </div>
+            <div class="input">
+                <textarea class="tx-input js-input"  name="inputCode" id="inputCode" cols="199" rows="8" placeholder="Nhập giá trị ...."></textarea>
+            </div>
+
+        </div>
+
+        
+        <div class="content">
+            <div class="editor" id="editor">
+
+            </div>
+              
+            <div class="output">
+                <textarea class="tx-output" name="outputCode" id="outputCode" readonly="readonly"  cols="100" rows="35"></textarea>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>Trần Nhật Quang - Nguyễn Thái Lộc</h3>
+        </div>
+
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/lib/ace.js"></script>
+    <script src="js/lib/theme-monokai.js"></script>
+    <script src="js/lib/ext-language_tools.js"></script>
+    <script src="js/ide.js"></script>
+    <script>
+        const con = document.querySelector(".js-btn-input");
+        con.addEventListener("click",oninput);
+        const tx = document.querySelector(".input");
+        function oninput()
+        {
+            if(tx.classList.contains("mode-on"))
+            {
+                tx.classList.remove("mode-on");
+            }
+            else tx.classList.add("mode-on");
+        }
+    </script>
+</body>
+</html>
