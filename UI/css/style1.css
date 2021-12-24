@@ -1,0 +1,107 @@
+.main{
+    width: 100%;
+    margin: -8px -8px;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    background: rgb(115, 201, 223);
+    position: relative;
+    padding-right: 16px;
+}
+.header a .icon-back{
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 7px;
+}
+.header .name-exe{
+    position: absolute;
+    left: 50px;
+    font-size: 23px;
+    top:5px;
+}
+.header.icon-back{
+    width: 20px;
+    height: 20px;
+}
+.content{
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+.content-exe{
+    border: 2px solid #000;
+    width: 611px;
+    background-color: rgb(245, 247, 242);
+    height: 650px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.frame-container{
+    width: 880px;
+    height: 650px;
+    position: absolute;
+    right: -16px;
+    top:0;
+    border-top: 2px solid #000;
+}
+.selector{
+    background: rgb(248, 240, 240);
+    height: 35px;
+    position: relative;
+    border-bottom: 1px solid #000;
+}
+.button-run .btn-run{
+    position: absolute;
+    left: 20px;
+    top: 5px
+}
+.select-lang{
+    position: absolute;
+    right: 10px;
+    top : 5px;
+}
+.editor{
+    height: 500px;
+    width: 800px;
+}
+.frame-testcase{
+    height: 117px;
+    position: relative;
+}
+.frame-testcase .testcase-frame{
+   width: 200px;
+   height: 117px;
+   background: rgb(248, 240, 240);
+   border: 0.5px solid #000;
+}
+.frame-testcase .content-testcase{
+   position: absolute;
+   right: 0;
+   top: 0;
+   width: 678px;
+   height: 117px;
+   background: rgb(248, 240, 240);
+   border: 0.5px solid #000;
+}
+.frame-testcase .frame-test{
+    width: 183px;
+}
+.NoneCase{
+    display: block;
+}
+.BlockCase{
+    display: none;
+}
+.oldcolor{
+    background: rgb(162, 216, 233);
+}
+.newcolor{
+    background: rgb(18, 186, 228);
+}
+.falsecase
+{
+    color: red;
+}

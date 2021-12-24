@@ -7,36 +7,15 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-    <!-- <div class="header">
-            <h2>Online Complier </h2>
-        </div> -->
-    <!-- <form action="../App/server.php" method="post"> -->
-        <!-- <div class="control-panel">
-            Select Language:
-            &nbsp; &nbsp;
-            <select id="languages" class="languages" name="language" onchange="changeLanguage()">
-                <option value="cpp"> C++ </option>
-                <option value="c"> C </option>
-                <option value="py"> Python </option>
-            </select>
-        </div>
-        <div class="editor" id="editor">
-        </div>
-        <div class="button-container">
-            <button class="btn" onclick="executeCode1()"> Run </button>
-        </div>
-        <div class="input">
-            <label for=""> Vui lòng nhập input, mỗi dòng ứng với 1 biến theo thứ tự</label>
-            <textarea name="inputCode" id="inputCode" cols="200" rows="10"></textarea>
-        </div>
-        <div class="output">
-            <textarea name="outputCode" id="outputCode" cols="200" rows="10"></textarea>
-        </div> -->
-    <!-- </form> -->
     <div class="main">
         <div class="header">
             <h2>WEB COMPLIER ONLINE</h2>
+            <div class="button-login">
+               Login
+            </div>
+            <div class="button-register">
+                Register
+            </div>
         </div>
         <div class="title-func">
             <div class="selector">
@@ -88,6 +67,28 @@
             <h3>Trần Nhật Quang - Nguyễn Thái Lộc</h3>
         </div>
 
+        <div class="form-login">
+            <div class="login-header">
+                <h3>LOGIN</h3>
+            </div>
+            <form id="formLogin" action="../App/C_CheckLogin.php" method="post">
+                <input class="login-length" type="text" name="username" id="userLogin" placeholder="User name" style="padding-left: 16px;"> <br>
+                <input class="login-length" type="password" name="password" id="passLogin" placeholder="Please enter password" style="padding-left: 16px;"> <br>
+                <input class="login-length btn-login" type="submit" value="Login" style="width: 325px;">
+            </form>
+        </div>
+        <div class="form-register">
+                <div class="register-header">
+                    <h3>REGISTER</h3>
+                </div>
+                <div class="register-content">
+                    <input type="text" id="username" placeholder="User name" style="padding-left: 16px;" class="text-lenght"> <br>
+                    <input type="password" id="password" placeholder="Password" style="padding-left: 16px;" class="text-lenght"> <br>
+                    <input type="password" id="check" placeholder="Confirm Password" style="padding-left: 16px;" class="text-lenght"> <br>
+                    <button class="btn-register" onclick="register()">Register</button>
+                </div>
+        </div>
+        </div>
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

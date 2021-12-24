@@ -1,25 +1,100 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8"/>
-        <title>Danh sach bai toan</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="..//UI/css/style2.css"/>
+        <link rel="stylesheet" href="../UI/fonts/fontawesome-free-6.0.0-beta2-web/css/all.min.css">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0 0;
+                background-color: #d3cbcb;
+            }
+            .container{
+                text-align: center;
+            }
+            .course-item{
+                background: rgb(230, 183, 183);
+                height: 100px;
+                border: 5px solid rgb(185, 231, 233);
+            }
+            .course-item1{
+                background: rgb(154, 243, 168);
+                height: 100px;
+                border: 5px solid rgb(185, 231, 233);
+            }
+            h1{
+                color: #fff;
+                margin: 0;  
+            }
+        </style>
     </head>
     <body>
-        <h2>Danh sach bai toan</h2>
-        <table border="1">
-            <?php
-            for($i=0;$i < sizeof($problems_List); $i++)
-             {
-                 $index = $i + 1;
-                 echo "<tr>";
-                 echo "<td><a href='ide1.html'>".$problems_List[$i]->getName_Prob()."</a></td>";
-                 echo "</tr>";
-             }
-            ?>
-        </table>
-        <br>
-        <p>
-            <a href="../index.php">Home Page</a>
-        </p>
+        <div class="header">
+            <ul id="nav">
+                <li><i class="icon-training fas fa-user-graduate"></i></li>
+                <li><p>TRAINING</p></li>
+                <li><a class="homepage" style="text-decoration: none; font-size: 20px;color: #000;" href="http://localhost:8800/PBL4_Quang\UI/ide.html">ĐĂNG XUẤT</a></li>
+                <li><a href="#"><i class="icon-login fas fa-user-circle"></i></a></li>
+            </ul>
+        </div>
+        <div class="container grid wide">
+        <?php 
+
+            for($i=0;$i < sizeof($problems_List)/4 ; $i++)
+            {
+                $a= $i * 4;
+        ?>
+                <div class="row">
+        <?php    
+            for($a ;$a < ($i+1)*4; $a++) 
+                { 
+        ?>
+        <?php            
+                    if($a >= sizeof($problems_List)) break;
+        ?>
+                    <div class="col l-3 m-4 c-6 ">
+        <?php
+                    if($state[$a]->getState() == 0)
+                    {
+        ?>
+                    <div class="course-item">
+        <?php       
+                    echo "<a style='text-decoration: none; color: #000;line-height: 100px;' href='../App/C_ShowProblem.php?id=".$problems_List[$a]->getId()."&&username=".$username."'>".$problems_List[$a]->getName()."</a>";  
+        ?>       
+                    </div>
+        <?php
+                    }
+                    else
+                    {
+        ?>
+                    <div class="course-item1">
+        <?php       
+        echo "<a style='text-decoration: none; color: #000;line-height: 100px;' href='#'>".$problems_List[$a]->getName()."</a>";
+        ?>       
+                    </div>
+        <?php
+                    }
+        ?>
+                    </div>
+        <?php 
+                } 
+        ?>    
+                </div>
+        <?php
+            }
+        ?>
+    </div>
+    <script>
+        window.onload = function() {
+        var username = "<?php echo $state[1]->getState();?>";
+        console.log(username);
+        }
+    </script>
     </body>
 </html>

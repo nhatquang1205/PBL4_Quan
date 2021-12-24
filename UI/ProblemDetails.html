@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Chi tiet bai toan</title>
+        <link rel="stylesheet" href="../UI/css/style1.css">
+        <link rel="stylesheet" href="../UI/fonts/fontawesome-free-6.0.0-beta2-web/css/all.min.css"/>
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">
+
+                <?php 
+                    echo "<a href='../App/C_Problem.php?username=".$username."'><i class='icon-back fas fa-chevron-left'></i></a>";
+                ?>
+                  <div class="name-exe">
+                    <?php
+                echo $problem->getName() . ""; 
+                     ?>
+                  </div>
+            </div>
+            <div class="content">
+                 <div class="content-exe">
+                    <h2>Mô tả bài toán</h2>
+                    <?php
+                        echo $problem->getDescription();
+                    ?>
+                <br>
+                <h3>Mô tả đầu vào</h3>
+                    <?php
+                        echo $problem->getInputDescription();
+                    ?>
+                <br>
+                <h3>Mô tả đầu ra</h3>
+                    <?php
+                        echo $problem->getOutputDescription();
+                    ?>
+                           
+                 </div>
+                 <div class="frame-container">
+                        <div class="selector">
+                            <div class="select-lang">
+                                <select id="languages" class="languages" name="language" onchange="changeLanguage()">
+                                    <option value="cpp"> C++ </option>
+                                    <option value="c"> C </option>
+                                    <option value="py"> Python </option>
+                                </select>
+                            </div>
+                            <div class="button-run">
+                                <button class="btn-run" onclick="executeCode()"> Run </button>
+                            </div>
+                    </div>
+                    <div class="editor" id="editor">
+
+                    </div>
+                    <div class="frame-testcase">
+                        <div class="testcase-frame" style="overflow-y: scroll;">
+                            <?php
+                            if($testCase != 0)
+                            {
+                       for($i = 0; $i < sizeof($testCase); ++$i)
+                       {
+                          $size = sizeof($testCase);
+                          $k = $i+1;
+                          $a = "TESTCASE " .$k;
+                          $m = "case" .$k;
+                          echo "<div class='frame-test ".$m."' onclick='Printcase(".$k.",".$size.")'><p>".$a."</p></div>";
+                       } }?>
+                        </div>
+                        <div class="content-testcase" style="overflow-y: scroll;">
+                            <?php
+                            if($testCase != 0)
+                            {
+                            for($i = 0; $i < sizeof($testCase); ++$i)
+                            {
+                            $k = $i+1;
+                            $a = "con-case" .$k;
+                            echo "<div class = '".$a." case BlockCase' >";
+                            echo "<p>Input : ".$listInput[$i]."</p>";
+                            echo "<p>Output : ".$listOutput[$i]."</p>";
+                            echo "</div>";
+                           }} ?>
+                        </div>
+                    </div>
+
+                 </div>
+              
+            </div>
+        </div>
+        <script>
+            function Printcase(number,size)
+            {
+                for(var i = 0;i < size ; i++)
+                {
+                    var a = i+1;
+                    var NameBtn = ".case" + a;
+                    var NameCase = ".con-case" + a;
+                    const contentcase = document.querySelector(NameCase);
+                    const btncase = document.querySelector(NameBtn);
+                    if((number-1) !== i)
+                    {
+                        btncase.classList.add("oldcolor");
+                        btncase.classList.remove("newcolor");
+                        contentcase.classList.add("BlockCase");
+                    } 
+                    else
+                    {
+                        btncase.classList.add("newcolor");
+                        btncase.classList.remove("oldcolor");
+                        contentcase.classList.add("NoneCase");
+                        contentcase.classList.remove("BlockCase");
+                    }
+                }
+            }
+        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../UI/js/lib/ace.js"></script>
+    <script src="../UI/js/lib/theme-monokai.js"></script>
+    <script src="../UI/js/lib/ext-language_tools.js"></script>
+    <script src="../UI/js/ide2.js"></script>
+
+    </body>
+
+</html>

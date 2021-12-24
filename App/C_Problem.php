@@ -1,14 +1,20 @@
 <?php
-    include_once("../Model/M_Problem.php");
+    include("../Model/BO/BO.php");
     class Control_Problem
     {
-        public function invoke()
+        private $BO;
+        public function __construct()
         {
-            $modelProblem = new Model_Problem();
-            $problems_List = $modelProblem->getAllProblem();
+            $this->BO = new BO();
+        }
+        public function doGet()
+        {
+            $username = $_REQUEST['username'];
+            $problems_List = $this->BO->getAllProblem();
+            $state = $this->BO->getStateByUsername($username);
             include_once("../UI/ShowProblem.html");
         }
     }
     $C_Problem = new Control_Problem();
-    $C_Problem->invoke();
+    $C_Problem->doGet();
 ?>

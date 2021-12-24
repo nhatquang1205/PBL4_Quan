@@ -1,7 +1,14 @@
 <?php
     class IOHelper
     {
-        public static function ReadFile($filePath)
+        public static function ReadFile($filePath, $fileSize)
+        {
+            $file = fopen($filePath,"r");
+            $content = fread($file,$fileSize);
+            fclose($file);
+            return $content;
+        }
+        public static function ReadFile1($filePath)
         {
             $file = fopen($filePath,"r");
             $content = fread($file,filesize($filePath));
