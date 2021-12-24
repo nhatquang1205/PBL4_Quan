@@ -4,7 +4,7 @@ let defaultCodeC = '#include <stdio.h>\n int main(){\n\n}';
 let defailtCodePy = 'print("hi")';
 window.onload = function() {
     editor = ace.edit("editor");
-    editor.setTheme("ace/theme/merbivore");
+    editor.setTheme("ace/theme/clouds");
     editor.session.setMode("ace/mode/c_cpp");
     editor.setOptions(
         {   
@@ -30,7 +30,7 @@ function InitialCode()
         if(_language)
         {
             $.ajax({
-                url: "http://192.168.1.10:1205/xampp/PBL4_Quang/app/server.php",
+                url: "http://localhost/xampp/PBL4_Quang/App/C_Execute.php",
                 method: "GET",
                 data: {
                     fileName: _fileName,
@@ -76,7 +76,7 @@ function shareCode()
 {
     $.ajax({
 
-        url: "http://192.168.1.10:1205/xampp/PBL4_Quang/app/server.php",
+        url: "http://localhost/xampp/PBL4_Quang/App/C_Execute.php",
 
         method: "POST",
 
@@ -92,7 +92,7 @@ function shareCode()
             var fileName = response.fileName;
             var language = response.language;
             var ip = response.IP;
-            var url = "http://" + ip + ":1205/xampp/PBL4_Quang/UI/ide.html?name=" + fileName + "&lang=" + language;
+            var url = "http://localhost/xampp/PBL4_Quang/UI/ide.html?name=" + fileName + "&lang=" + language;
             $("#txt_Link").val(url);
             $("#outputCode").val(response.output);
         }
@@ -101,7 +101,7 @@ function shareCode()
 function executeCode() {
     $.ajax({
 
-        url: "http://192.168.1.10:1205/xampp/PBL4_Quang/app/server.php",
+        url: "http://localhost/xampp/PBL4_Quang/App/C_Execute.php",
 
         method: "POST",
 
@@ -115,7 +115,65 @@ function executeCode() {
         success: function(response) {
             response = $.parseJSON(response);
             $("#outputCode").val(response.output);
-            console.log(response.output);
+            console.log(response);
         }
     })
 }
+function register()
+{
+    var username = $("#username").val();
+    var password = $("#password").val();
+    var check = $("#check").val();
+    console.log(password);
+    console.log(check);
+    $.ajax({
+
+        beforeSend: function(){
+            if(username == "")
+            {
+                alert("Vui lòng nhập tên đăng nhập");
+                return false;
+            }
+            else if(password == "")
+            {
+                alert("Vui lòng nhập mật khẩu");
+                return false;
+            }
+            else if(password.length < 8 || password.length > 32)
+            {
+                alert("Mật khẩu có độ dài từ 8 - 32 kí tự");
+                return false;
+            }
+            else if(password.localeCompare(check))
+            {
+                alert("Mật khẩu chưa trùng khớp");
+                return false;
+            }
+            return true;
+          },
+        url: "http://localhost/xampp/PBL4_Quang/App/C_Register.php",
+
+        method: "POST",
+
+        data: {
+            username: $("#username").val(), 
+            password: $("#password").val()
+        },
+        success: function(response)
+        {
+            console.log(response);
+            if(response) alert("Đăng ký thành công");
+            else alert("Đăng ký không thành công");
+        }
+    })
+}
+$('#formLogin').submit(function() {
+    var username = $("#userLogin").val();
+    var password = $("#passLogin").val();
+    if(username == "" || password == "")
+    {
+        alert("Tên đăng nhập hoặc mật khẩu không được để trống");
+        return false;
+    }
+    return true;
+});
